@@ -1,13 +1,4 @@
-h1 {
-    color: white;
-    background-color: blue;
-}
-h2 {
-    background-color: red;
-}
-#wbdv-module-list {
-    background-color: yellow;
-}
+
 .wbdv-bold {
     font-weight: bolder;
 }
@@ -17,3 +8,79 @@ h2 {
 .wbdv-module.wbdv-selected {
     background-color: darkgray;
 }
+.wbdv-course-editor.wbdv-close{
+    margin-right: 10px;
+}
+
+.module{
+    background-color: #585858;
+    border: none;
+    color: white;
+    padding: 15px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+.wbdv-module-list{
+    width: 20%;
+    position: fixed;
+    top:36px;
+    left:0;
+    background-color: #404040;
+    color:white;
+
+}
+.module:hover{
+    background-color: #22A7F0;
+    color: white;
+}
+.wbdv-module-item-delete-btn{
+    cursor:pointer;
+    right: 0%;
+    margin-left: 20px;
+    }
+.wbdv-module-item-delete-btn:hover{
+    background-color: black;
+}
+.wbdv-module-list{
+    margin-top: 20px;
+    float: left;
+}
+.choose{
+    background-color: #22A7F0;
+    color: white;
+}
+
+.wbdv-module-item-add-btn{
+    background-color: #404040;
+    padding: 15px 35px;
+    text-align: right;
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+.content{
+    margin-left: 20%;
+
+}
+.wbdv-topic-pill-list{
+    margin-left: 5%;
+}
+.boxed{
+    border: 0.1px solid #BEBEBE;
+    padding: 1%;
+    margin-left: 3%;
+    margin-top: 5%;
+    margin-right: 3%;
+}
+
+
+

@@ -6,84 +6,104 @@
 
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             rel="stylesheet"/>
-        <link href="../css/styles.css"
-              rel="stylesheet"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link href="course-editor.stylesheet.client.css"
               rel="stylesheet"/>
     </head>
-    <body>
-    <div class="container-fluid">
-        <h1>
-            Course Editor
-        </h1>
+    <body class=" bg-white">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark wbdv-page-tab">
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-close wbdv-course-editor wbdv-close"></i></a>
+            </li>
+            <span class="navbar-brand wbdv-course-title" href="#">CS4550 - WebDev</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Build</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Pages</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Theme</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Store</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Apps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+        </ul>
+        <button><i class="fa fa-plus wbdv-new-page-btn"></i></button>
 
-        <div class="row">
-            <div class="col-4">
-                <h2 id="wbdv-module-list">Module List</h2>
+        </nav>
 
-                <ul class="list-group">
-                    <li class="list-group-item">Module 1</li>
-                    <li class="list-group-item">Module 2</li>
-                    <li class="list-group-item">Module 3</li>
-                    <li class="list-group-item">Module 4</li>
-                    <li class="list-group-item">Module 5</li>
-                </ul>
 
-                <p class="wbdv-bold">
-                    Lorem ipsum
-                </p>
 
-            </div>
-            <div class="col-8">
-                <h2>Lessons</h2>
-
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Lesson 1
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            Lesson 2
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Lesson 3
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Lesson 4
-                        </a>
-                    </li>
-                </ul>
-
-                <h3>Topics</h3>
-
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Topic 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Topic 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Topic 3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Topic 4</a>
-                    </li>
-                </ul>
-
-                <span class="wbdv-bold">
-            Widgets
-        </span>
+    <div class="wbdv-module-list">
+            <div class="list-group wbdv-module-list">
+                <a type="button" class="module">
+                    Module 1 - JQuery <span class="wbdv-module-item-delete-btn">X</span>
+                </a>
+                <a type="button" class="module">Module 2 - React <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module choose">Module 3 - Redux <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module">Module 4 - Native <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module" >Module 5 - Angular <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module" >Module 6 - Node <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module" >Module 7 - Mongo <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="wbdv-module-item-add-btn"> + </a>
 
             </div>
-        </div>
-
     </div>
+
+    <div class = "content">
+        <div class ="wbdv-topic-pill-list">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Topic 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Topic 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Topic 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Topic 4</a>
+            </li>
+
+            <button type="button" class="btn btn-primary wbdv-topic-add-btn"><i class="fa fa-plus"></i></button>
+        </ul>
+        </div>
+        <div class="boxed">
+            <h2> Heading widget</h2>
+            <div class="form-group">
+                <label for="headingtext"></label>
+                <input type="text" class="form-control" id="headingtext" placeholder="Heading Text">
+            </div>
+
+            <div class="form-group">
+                <label for="headingnumber"></label>
+                <select class="form-control" id="headingnumber">
+                    <option>Heading 1</option>
+                    <option>Heading 2</option>
+                    <option>Heading 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="widgetname"></label>
+                <input type="text" class="form-control" id="widgetname" placeholder="Widget Name">
+            </div>
+            <h4>Preview</h4>
+            <h1>Heading Text</h1>
+
+            </div>
+
+
+</div>
     </body>
 </html>
