@@ -1,0 +1,51 @@
+.wbdv-button.wbdv-add-course{
+    background-color:red;
+    border-radius: 50%;
+    color: white;
+    width:40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3px;
+    margin-left: 20px;
+    line-height: 37px;
+}
+.tableheader{
+    background-color:#F0F0F0;
+    color:	#808080;
+}
+.coursetable{
+    width: 100%;
+    text-align: left;
+}
+
+.wbdv-course{
+    border: solid thin lightgray;
+}
+.wbdv-title{
+    color: #404040;
+}
+.wbdv-owner{
+    color: #808080;
+}
+.wbdv-modified-date{
+    color: #808080;
+}
+.bottom-plus{
+    background-color:red;
+    border-radius: 50%;
+    color: white;
+    width:40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 37px;
+    right:40px;
+    bottom:20px;
+    position: fixed;
+}
+

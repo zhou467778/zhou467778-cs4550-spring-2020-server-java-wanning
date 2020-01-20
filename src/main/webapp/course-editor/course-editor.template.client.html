@@ -7,11 +7,12 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             rel="stylesheet"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <link href="course-editor.stylesheet.client.css"
+        <link href="course-editor.style.client.css"
               rel="stylesheet"/>
     </head>
-    <body class=" bg-white">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark wbdv-page-tab">
+    <body class=" bg-white main">
+    <div class=" wbdv-page-tab">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -38,22 +39,28 @@
             </li>
         </ul>
         <button><i class="fa fa-plus wbdv-new-page-btn"></i></button>
-
         </nav>
+    </div>
 
 
 
     <div class="wbdv-module-list">
             <div class="list-group wbdv-module-list">
-                <a type="button" class="module">
+                <a type="button" class="module wbdv-module-item">
                     Module 1 - JQuery <span class="wbdv-module-item-delete-btn">X</span>
                 </a>
-                <a type="button" class="module">Module 2 - React <span class="wbdv-module-item-delete-btn">X</span></a>
-                <a type="button" class="module choose">Module 3 - Redux <span class="wbdv-module-item-delete-btn">X</span></a>
-                <a type="button" class="module">Module 4 - Native <span class="wbdv-module-item-delete-btn">X</span></a>
-                <a type="button" class="module" >Module 5 - Angular <span class="wbdv-module-item-delete-btn">X</span></a>
-                <a type="button" class="module" >Module 6 - Node <span class="wbdv-module-item-delete-btn">X</span></a>
-                <a type="button" class="module" >Module 7 - Mongo <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item">Module 2 - React
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item choose">Module 3 - Redux
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item">Module 4 - Native
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item" >Module 5 - Angular
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item" >Module 6 - Node
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
+                <a type="button" class="module wbdv-module-item" >Module 7 - Mongo
+                    <span class="wbdv-module-item-delete-btn">X</span></a>
                 <a type="button" class="wbdv-module-item-add-btn"> + </a>
 
             </div>
@@ -63,23 +70,39 @@
         <div class ="wbdv-topic-pill-list">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Topic 1</a>
+                <a class="nav-link active wbdv-topic-pill" href="#">Topic 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Topic 2</a>
+                <a class="nav-link wbdv-topic-pill" href="#">Topic 2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Topic 3</a>
+                <a class="nav-link wbdv-topic-pill" href="#">Topic 3</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Topic 4</a>
+                <a class="nav-link wbdv-topic-pill" href="#">Topic 4</a>
             </li>
 
             <button type="button" class="btn btn-primary wbdv-topic-add-btn"><i class="fa fa-plus"></i></button>
         </ul>
         </div>
+
+            <button type="button" class="btn btn-success">Save</button>
+            <a type="button" class="preview" style="font-size: 20px;">Preview <i class="fa fa-toggle-off" style="font-size: 25px;"></i></a>
+
         <div class="boxed">
-            <h2> Heading widget</h2>
+<div>
+            <h2 class="big-heading"> Heading widget</h2>
+            <button class="up"><i class="fa fa-arrow-up"></i></button>
+            <button class="down"><i class="fa fa-arrow-down"></i></button>
+                <div class="form-group col-md-2 heading">
+                    <label for="heading"></label>
+                    <select id="heading" class="form-control">
+                    <option> Heading</option>
+                    </select>
+                </div>
+    <button class="red-close"><i class="fa fa-close"></i></button>
+</div>
+
             <div class="form-group">
                 <label for="headingtext"></label>
                 <input type="text" class="form-control" id="headingtext" placeholder="Heading Text">
@@ -102,7 +125,7 @@
             <h1>Heading Text</h1>
 
             </div>
-
+<button class="red-plus"><i class="fa fa-plus"></i></button>
 
 </div>
     </body>

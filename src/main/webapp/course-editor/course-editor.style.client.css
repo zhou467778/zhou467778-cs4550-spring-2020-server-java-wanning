@@ -1,17 +1,6 @@
-
-.wbdv-bold {
-    font-weight: bolder;
+.main{
+    position: relative;
 }
-.wbdv-module {
-    background-color: lightgray;
-}
-.wbdv-module.wbdv-selected {
-    background-color: darkgray;
-}
-.wbdv-course-editor.wbdv-close{
-    margin-right: 10px;
-}
-
 .module{
     background-color: #585858;
     border: none;
@@ -80,6 +69,45 @@
     margin-left: 3%;
     margin-top: 5%;
     margin-right: 3%;
+}
+.btn-success{
+    margin-left: 80%;
+}
+.big-heading{
+    display: inline-block;
+}
+.up{
+    background-color: #ffd700;
+    color: black;
+    margin-left:48%;
+    display: inline-block;
+}
+.down{
+    background-color: #ffd700;
+    display: inline-block;
+}
+.heading{
+    display: inline-block;
+}
+.red-close{
+    background-color: #DE1616;
+    color: white;
+    display: inline-block;
+}
+.red-plus{
+    background-color: #DE1616;
+    border-radius: 50%;
+    color: white;
+    width:50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 37px;
+    right:40px;
+    bottom:20px;
+    position: fixed;
 }
 
 
