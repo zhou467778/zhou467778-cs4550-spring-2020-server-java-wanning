@@ -1,8 +1,8 @@
-.wbdv-button.wbdv-add-course{
-    background-color:red;
+.wbdv-button.wbdv-add-course {
+    background-color: red;
     border-radius: 50%;
     color: white;
-    width:40px;
+    width: 40px;
     height: 40px;
     text-align: center;
     text-decoration: none;
@@ -12,40 +12,76 @@
     margin-left: 20px;
     line-height: 37px;
 }
-.tableheader{
-    background-color:#F0F0F0;
-    color:	#808080;
+
+.wbdv-tableheader {
+    background-color: #F0F0F0;
+    color: #808080;
+
 }
-.coursetable{
+
+.wbdv-coursetable {
     width: 100%;
     text-align: left;
 }
 
-.wbdv-course{
+.wbdv-course {
     border: solid thin lightgray;
+    height: 45px;
 }
-.wbdv-title{
+
+.wbdv-title {
     color: #404040;
+
 }
-.wbdv-owner{
+
+.wbdv-owner {
     color: #808080;
 }
-.wbdv-modified-date{
+
+.wbdv-modified-date {
     color: #808080;
 }
-.bottom-plus{
-    background-color:red;
+
+.wbdv-bottom-plus {
+    background-color: red;
     border-radius: 50%;
     color: white;
-    width:40px;
+    width: 40px;
     height: 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     line-height: 37px;
-    right:40px;
-    bottom:20px;
+    right: 40px;
+    bottom: 20px;
     position: fixed;
+}
+.wbdv-title-icons{
+    padding-left: 15px;
+}
+.wbdv-header.wbdv-title{
+    padding-left: 50px;
+}
+@media only screen and (max-width: 540px) {
+    td:nth-child(2) {
+        display:none;
+    }
+}
+@media only screen and (max-width: 540px) {
+    td:nth-child(3) {
+        display:none;
+    }
+}
+@media only screen and (max-width: 540px) {
+    th:nth-child(2) {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    th:nth-child(3) {
+        display:none;
+    }
 }
 

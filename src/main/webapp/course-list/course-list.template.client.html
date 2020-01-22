@@ -9,89 +9,98 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="course-list.style.client.css"
           rel="stylesheet"/>
+    <meta charset="utf-8" name="viewport"
+          content= "width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <div class="wbdv-label wbdv-course-manager">
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <ul class="nav navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fa fa-bars wbdv-field wbdv-hamburger"></i></a>
-        </li>
-        <span class="navbar-brand wbdv-course-title" href="#">Course Manager</span>
-    </ul>
-    <div class="form-inline wbdv-field wbdv-new-course">
-        <label for="newcourse"></label>
-        <input id="newcourse" class="form-control "
-               type="text" placeholder="New Course Title">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-bars wbdv-field wbdv-hamburger"></i></a>
+            </li>
+            <span class="navbar-brand wbdv-course-title d-sm-none d-md-block d-none d-sm-block" href="#">Course Manager</span>
+        </ul>
+        <div class="form-inline wbdv-field wbdv-new-course">
+            <label for="newcourse"></label>
+            <input id="newcourse" class="form-control "
+                   type="text" placeholder="New Course Title">
+
+        </div>
+        <a type="button" class="wbdv-button wbdv-add-course"><i class="fa fa-plus"></i></a>
+    </nav>
+
+    <div class="wbdv-table">
+        <table class="wbdv-coursetable">
+            <thead >
+            <tr class="wbdv-header wbdv-tableheader " style="height: 50px;">
+                <th class="wbdv-header wbdv-title ">Title</th>
+                <th class="wbdv-header wbdv-owner wbdv-sort">Owned by<i class="fa fa-sort-desc"></i></th>
+                <th class="wbdv-header wbdv-last-modified ">Last modified by me</th>
+                <th><a type="button" class="wbdv-button wbdv-grid-layout"><i class="fa fa-th" style="color:#808080"></i></a>
+                </th>
+                <th><a type="button" class="wbdv-button wbdv-list-layout"><i class="fa fa-sort-alpha-asc"
+                                                                             style="color:#808080"></i></a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="wbdv-row wbdv-course">
+                <td class="wbdv-title-icons"><a href="../course-editor/course-editor.template.client.html" type="button"
+                       class="wbdv-row wbdv-title">
+                    <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i> &nbsp &nbsp CS4550 WebDev Undergraduate</a>
+                </td>
+
+                <td class="wbdv-row wbdv-owner">me</td>
+                <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close"
+                                                                                 style="color:#808080"></i></a>
+                </td>
+                <td></td>
+            </tr>
+            <tr class="wbdv-row wbdv-course">
+                <td class="wbdv-title-icons"><a type="button" class="wbdv-row wbdv-title">
+                    <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i> &nbsp &nbsp CS5610 WebDev Graduate</a>
+                </td>
+
+                <td class="wbdv-row wbdv-owner">me</td>
+                <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
+                <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close"
+                                                                                 style="color:#808080"></i></a>
+                </td>
+                <td></td>
+            </tr>
+            <tr class="wbdv-row wbdv-course">
+                <td class="wbdv-title-icons"><a type="button" class="wbdv-row wbdv-title">
+                    <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i> &nbsp &nbsp WebDev Syllabus</a></td>
+
+                <td class="wbdv-row wbdv-owner">me</td>
+                <td class="wbdv-row wbdv-modified-date">6:30 PM</td>
+                <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close"
+                                                                                 style="color:#808080"></i></a>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr class="wbdv-row wbdv-course">
+                <td class="wbdv-title-icons"><a type="button" class="wbdv-row wbdv-title">
+                    <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i>&nbsp &nbsp Online WebDev</a></td>
+
+                <td class="wbdv-row wbdv-owner">me</td>
+                <td class="wbdv-row wbdv-modified-date">2:26 PM</td>
+                <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close"
+                                                                                 style="color:#808080"></i></a>
+                </td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <a type="button" class="wbdv-button wbdv-add-course" ><i class="fa fa-plus"></i></a>
-</nav>
 
-    <div class="table">
-    <table class="coursetable">
-        <thead >
-        <tr class="tableheader">
-        <th class="wbdv-header wbdv-title">Title</th>
-        <th class="wbdv-header wbdv-owner wbdv-sort">Owned by<i class="fa fa-sort-desc"></i></th>
-        <th class="wbdv-header wbdv-last-modified">Last modified by me</th>
-            <th><a type="button" class="wbdv-button wbdv-grid-layout"><i class="fa fa-th" style="color:#808080"></i></a></th>
-            <th><a type="button"class="wbdv-button wbdv-list-layout"><i class="fa fa-sort-alpha-asc" style="color:#808080"></i></a></th>
-        </tr>
-        </thead>
-        <tbody >
-        <tr class="wbdv-row wbdv-course">
-            <td><a href="../course-editor/course-editor.template.client.html" type="button" class="wbdv-row wbdv-title">
-                <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i> CS4550 WebDev Undergraduate</a></td>
-
-            <td class="wbdv-row wbdv-owner">me</td>
-            <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
-            <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close" style="color:#808080"></i></a>
-            </td>
-            <td></td>
-        </tr>
-        <tr class="wbdv-row wbdv-course">
-            <td><a type="button" class="wbdv-row wbdv-title">
-                <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i> CS5610 WebDev Graduate</a></td>
-
-            <td class="wbdv-row wbdv-owner">me</td>
-            <td class="wbdv-row wbdv-modified-date">6:45 PM</td>
-            <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close" style="color:#808080"></i></a>
-            </td>
-            <td></td>
-        </tr>
-        <tr class="wbdv-row wbdv-course">
-            <td><a type="button" class="wbdv-row wbdv-title">
-                <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i>WebDev Syllabus</a></td>
-
-            <td class="wbdv-row wbdv-owner">me</td>
-            <td class="wbdv-row wbdv-modified-date">6:30 PM</td>
-            <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close" style="color:#808080"></i></a>
-            </td>
-            <td></td>
-        </tr>
-
-        <tr class="wbdv-row wbdv-course">
-            <td><a type="button" class="wbdv-row wbdv-title">
-                <i class="fa fa-file-text wbdv-row wbdv-icon" style="color:#1E90FF"></i>Online WebDev</a></td>
-
-            <td class="wbdv-row wbdv-owner">me</td>
-            <td class="wbdv-row wbdv-modified-date">2:26 PM</td>
-            <td><a type="button" class="wbdv-row wbdv-button wbdv-delete"><i class="fa fa-close" style="color:#808080"></i></a>
-            </td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="wbdv-bottom-plus">
+        <a type="button"><i class="fa fa-plus"></i></a>
     </div>
-
-    <div class="bottom-plus">
-        <a type="button" ><i class="fa fa-plus"></i></a>
-    </div>
-
-
-
 
 
 </div>

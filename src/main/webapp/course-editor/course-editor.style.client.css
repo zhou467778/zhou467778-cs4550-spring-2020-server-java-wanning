@@ -1,11 +1,11 @@
-.main{
+.wbdv-main {
     position: relative;
 }
-.module{
+
+.wbdv-module-item {
     background-color: #585858;
     border: none;
-    color: white;
-    padding: 15px 35px;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -15,37 +15,43 @@
     margin-right: 20px;
 
 }
-.wbdv-module-list{
+
+.wbdv-module-list {
     width: 20%;
     position: fixed;
-    top:36px;
-    left:0;
+    top: 36px;
+    left: 0;
     background-color: #404040;
-    color:white;
+    color: white;
 
 }
-.module:hover{
+
+.wbdv-module-item:hover {
     background-color: #22A7F0;
     color: white;
 }
-.wbdv-module-item-delete-btn{
-    cursor:pointer;
+
+.wbdv-module-item-delete-btn {
     right: 0%;
     margin-left: 20px;
-    }
-.wbdv-module-item-delete-btn:hover{
-    background-color: black;
 }
-.wbdv-module-list{
+
+.wbdv-module-item-delete-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.wbdv-module-list {
     margin-top: 20px;
     float: left;
 }
-.choose{
+
+.wbdv-choose {
     background-color: #22A7F0;
     color: white;
 }
 
-.wbdv-module-item-add-btn{
+.wbdv-module-item-add-btn {
     background-color: #404040;
     padding: 15px 35px;
     text-align: right;
@@ -56,57 +62,67 @@
     margin-right: 20px;
 
 }
-.content{
+
+.wbdv-content {
     margin-left: 20%;
 
 }
-.wbdv-topic-pill-list{
+
+.wbdv-topic-pill-list {
     margin-left: 5%;
 }
-.boxed{
+
+.wbdv-boxed {
     border: 0.1px solid #BEBEBE;
     padding: 1%;
     margin-left: 3%;
     margin-top: 5%;
     margin-right: 3%;
 }
-.btn-success{
+
+.btn-success {
     margin-left: 80%;
 }
-.big-heading{
+
+.wbdv-big-heading {
     display: inline-block;
 }
-.up{
+
+.wbdv-up {
     background-color: #ffd700;
     color: black;
-    margin-left:48%;
+    margin-left: 48%;
     display: inline-block;
 }
-.down{
+
+.wbdv-down {
     background-color: #ffd700;
     display: inline-block;
 }
-.heading{
+
+.wbdv-heading {
     display: inline-block;
 }
-.red-close{
+
+.wbdv-red-close {
     background-color: #DE1616;
     color: white;
     display: inline-block;
 }
-.red-plus{
+
+.wbdv-red-plus {
     background-color: #DE1616;
     border-radius: 50%;
     color: white;
-    width:50px;
+    width: 50px;
     height: 50px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     line-height: 37px;
-    right:40px;
-    bottom:20px;
+    right: 40px;
+    bottom: 20px;
     position: fixed;
 }
 
