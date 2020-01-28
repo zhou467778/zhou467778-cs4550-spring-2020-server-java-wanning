@@ -28,6 +28,7 @@
         findAllUsers();
     }
 
+    // create an user when user click on the plus icon
     function creatUser() {
         const newUser = {
             username: $usernameFld.val(),
@@ -43,11 +44,12 @@
 
         userService.createUser(newUser)
             .then((actualUser) => {
-                listUsers.push(newUser);
+                listUsers.push(actualUser);
                 renderUsers();
             })
     }
 
+    // delete an user when the cross icon is clicked
     function deleteUser(userId) {
         userService.deleteUser(userId)
             .then(response => {
@@ -55,6 +57,7 @@
             });
     }
 
+    // user's information will be shown when the pencil icon is clicked
     function selectUser(userId) {
         userService.findUserById(userId)
             .then(actualUser => {
@@ -66,7 +69,7 @@
             })
     }
 
-
+    // update the chosen user's information after the check icon is clicked
     function updateUser() {
         const updatedUser = {
             username: $usernameFld.val(),
@@ -86,6 +89,7 @@
                 findAllUsers());
     }
 
+    // This function is not used
     function findUserById(userId) {
         userService.findUserById(userId)
             .then(function (res) {
@@ -96,6 +100,7 @@
 
     function renderUser(user) {
         const rowClone = $userRowTemplate.clone();
+        rowClone.removeClass('.wbdv-hidden');
         rowClone.find('.wbdv-username').html(user.username);
         rowClone.find('.wbdv-first-name').html(user.firstName);
         rowClone.find('.wbdv-last-name').html(user.lastName);
@@ -104,7 +109,6 @@
         rowClone.find('.wbdv-edit').attr('id', user._id);
 
         $tbody.append(rowClone);
-
     }
 
     function renderUsers() {
@@ -113,6 +117,16 @@
             let user = listUsers[u];
             renderUser(user);
         }
+        $editBtn = $('.wbdv-edit');
+        $editBtn.click(function () {
+            let id = $(this).attr('id');
+            selectUser(id);
+        });
+        $removeBtn = $('.wbdv-remove');
+        $removeBtn.click(function () {
+            let id = $(this).attr('id');
+            deleteUser(id);
+        });
     }
 
 
@@ -122,19 +136,6 @@
             .then((theUsers) => {
                 listUsers = theUsers;
                 renderUsers();
-
-                $editBtn = $('.wbdv-edit');
-                $editBtn.click(function () {
-                    let id = $(this).attr('id');
-                    selectUser(id);
-                    findUserById(id);
-
-                });
-                $removeBtn = $('.wbdv-remove');
-                $removeBtn.click(function () {
-                    let id = $(this).attr('id');
-                    deleteUser(id);
-                });
             })
     }
 
