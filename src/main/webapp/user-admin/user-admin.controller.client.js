@@ -7,22 +7,23 @@
     let userService = new AdminUserServiceClient();
 
     let listUsers = [
-        {username: 'alice', firstName: 'Alice', lastName: 'Wonderland', role: 'FACULTY'},
+        {username: 'alice', firstName: 'Alice', lastName: 'Wonderland', role: 'FACULTY'}
     ];
+
+    let currUserId = '123';
 
     function main() {
         $userRowTemplate = $('#wbdv-template');
         $createBtn = $('.wbdv-create');
         $createBtn.click(() => creatUser());
         $updateBtn = $('.wbdv-update');
-        $updateBtn.click(updateUser);
+        $updateBtn.click(() => updateUser());
         $usernameFld = $('#usernameFld');
         $passwordFld = $('#passwordFld');
         $firstNameFld = $('#firstNameFld');
         $lastNameFld = $('#lastNameFld');
         $roleFld = $('#roleFld');
         $tbody = $('.wbdv-tbody');
-
 
         findAllUsers();
     }
@@ -38,7 +39,7 @@
         $firstNameFld.val("");
         $lastNameFld.val("");
         $roleFld.val("");
-
+        $passwordFld.val("");
 
         userService.createUser(newUser)
             .then((actualUser) => {
@@ -54,12 +55,42 @@
             });
     }
 
-    function editUser() {
-        alert('???');
+    function selectUser(userId) {
+        userService.findUserById(userId)
+            .then(actualUser => {
+                $usernameFld.val(actualUser.username);
+                $firstNameFld.val(actualUser.firstName);
+                $lastNameFld.val(actualUser.lastName);
+                $roleFld.val(actualUser.role);
+                currUserId = userId;
+            })
     }
 
+
     function updateUser() {
-        alert('???');
+        const updatedUser = {
+            username: $usernameFld.val(),
+            firstName: $firstNameFld.val(),
+            lastName: $lastNameFld.val(),
+            role: $roleFld.val()
+        };
+
+        $usernameFld.val("");
+        $firstNameFld.val("");
+        $lastNameFld.val("");
+        $roleFld.val("");
+        $passwordFld.val("");
+
+        userService.updateUser(currUserId, updatedUser)
+            .then(response =>
+                findAllUsers());
+    }
+
+    function findUserById(userId) {
+        userService.findUserById(userId)
+            .then(function (res) {
+                return res;
+            })
     }
 
 
@@ -70,6 +101,8 @@
         rowClone.find('.wbdv-last-name').html(user.lastName);
         rowClone.find('.wbdv-role').html(user.role);
         rowClone.find('.wbdv-remove').attr('id', user._id);
+        rowClone.find('.wbdv-edit').attr('id', user._id);
+
         $tbody.append(rowClone);
 
     }
@@ -82,14 +115,21 @@
         }
     }
 
+
     function findAllUsers() {
         userService
             .findAllUsers()
             .then((theUsers) => {
                 listUsers = theUsers;
                 renderUsers();
+
                 $editBtn = $('.wbdv-edit');
-                $editBtn.click(editUser);
+                $editBtn.click(function () {
+                    let id = $(this).attr('id');
+                    selectUser(id);
+                    findUserById(id);
+
+                });
                 $removeBtn = $('.wbdv-remove');
                 $removeBtn.click(function () {
                     let id = $(this).attr('id');
@@ -97,9 +137,7 @@
                 });
             })
     }
-    function findUserById(){
 
-    }
 
     $(main);
 
