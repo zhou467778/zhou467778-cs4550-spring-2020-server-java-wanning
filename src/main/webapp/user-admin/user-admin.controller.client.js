@@ -42,6 +42,7 @@
         $roleFld.val("");
         $passwordFld.val("");
 
+
         userService.createUser(newUser)
             .then((actualUser) => {
                 listUsers.push(actualUser);
