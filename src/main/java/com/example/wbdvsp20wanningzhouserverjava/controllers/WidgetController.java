@@ -13,66 +13,57 @@ public class WidgetController {
 
     WidgetService service = new WidgetService();
 
-    @PostMapping("/widgets")
+    @PostMapping("/api/widgets")
     public Widget createWidget(
             @RequestBody Widget newWidget) {
         return service.createWidget(newWidget);
     }
 
 
-    @PostMapping("/widgets/up")
+    @PostMapping("/api/widgets/up")
     public int upWidget(
             @RequestBody Widget widget){
         return service.upWidget(widget);
     }
 
-    @PostMapping("/widgets/down")
+    @PostMapping("/api/widgets/down")
     public int downWidget(
             @RequestBody Widget widget){
         return service.downWidget(widget);
     }
 
 
-
-
-    @DeleteMapping("/widgets/{widgetId}")
+    @DeleteMapping("/api/widgets/{widgetId}")
     public int deleteWidget(
             @PathVariable("widgetId") String wid) {
         return service.deleteWidget(wid);
     }
 
-    @PutMapping("/widgets/{widgetId}")
+    @PutMapping("/api/widgets/{widgetId}")
     public int updateWidget(
             @PathVariable("widgetId") String wid,
             @RequestBody Widget updatedWidget) {
         return service.updateWidget(wid, updatedWidget);
     }
 
-    @GetMapping("/widgets/{widgetId}")
-    public Widget findWidgetById(
-            @PathVariable("widgetId") String wid) {
-        return service.findWidgetById(wid);
-    }
 
-    @GetMapping("/widgets")
+    @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
         return service.findAllWidgets();
     }
 
-    @GetMapping("/topics/{tid}/widgets")
+    @GetMapping("/api/topics/{tid}/widgets")
     public List<Widget> findWidgetsForTopic(
             @PathVariable("tid") String topicId) {
         return service.findWidgetsForTopic(topicId);
     }
 
-    @GetMapping("/w1")
-    public Widget getWidget() {
-        Widget w1 = new Widget("123", "Widget A", "PARAGRAPH");
-        return w1;
+    @GetMapping("api/widgets/{widgetId}")
+    public Widget findWidgetById(
+            @PathVariable("widgetId") String wid){
+        return service.findWidgetById(wid);
     }
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello World";
-    }
+
+
 }
