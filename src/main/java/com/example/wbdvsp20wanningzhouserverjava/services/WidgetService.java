@@ -23,7 +23,9 @@ public class WidgetService {
     public Widget createWidget(Integer tid, Widget newWidget){
 
         Topic selectedTopic = topicRepository.findTopicById(tid);
-          newWidget.setTopic(selectedTopic);
+        Integer widgetOrder = widgetRepository.setWidgetOrder(tid);
+        newWidget.setTopic(selectedTopic);
+        newWidget.setWidgetorder(widgetOrder);
         return widgetRepository.save(newWidget);
 
     }
@@ -61,10 +63,27 @@ public class WidgetService {
         return 1;
     }
 
+    public int upWidget(Widget widget){
+        Topic topic = widget.getTopic();
+        Integer widgetOrder = widget.getWidgetorder();
+        List<Widget> widgets = topic.getWidgets();
+        for (int i = 0; i < widgets.size(); i++){
+            Widget w = widgets.get(i);
+            if(w.getId().equals(widget.getId())){
+                if (i != 0){
+                    widgets.get(i).setWidgetorder(widgetOrder - 1);
+                    widgets.get(i-1).setWidgetorder(widgetOrder);
+                    Collections.swap(widgets, i, i-1);
 
 
+                    return 1;
 
+                }
+            }
+        }
+        return 0;
 
+    }
 //    public int upWidget(Widget widget){
 //        String tid = widget.getTopicId();
 //        List<Widget> widgets = widgetList.get(tid);
@@ -85,6 +104,8 @@ public class WidgetService {
 //        }
 //        return 0;
 //    }
+
+
 
 //
 //    public int downWidget(Widget widget){

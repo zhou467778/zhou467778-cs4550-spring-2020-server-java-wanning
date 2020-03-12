@@ -19,4 +19,9 @@ public interface WidgetRepository extends CrudRepository<Widget, Integer> {
     public List<Widget> findWidgetsForTopic(
             @Param("tid") int topicId);
 
+        @Query("SELECT COUNT(widget) FROM Widget widget WHERE widget.topic.id=:tid")
+    public Integer setWidgetOrder(
+            @Param("tid") int topicId);
+
+
 }

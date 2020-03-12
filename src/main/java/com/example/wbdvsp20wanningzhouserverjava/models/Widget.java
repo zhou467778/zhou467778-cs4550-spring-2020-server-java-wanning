@@ -78,11 +78,11 @@ public class Widget {
         return title;
     }
 
-    public void setOrder(int order) {
+    public void setWidgetorder(int order) {
         this.widgetorder = order;
     }
 
-    public int getOrder() {
+    public int getWidgetorder() {
         return this.widgetorder;
     }
 

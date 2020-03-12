@@ -23,11 +23,11 @@ public class WidgetController {
     }
 
 
-//    @PostMapping("/api/widgets/up")
-//    public int upWidget(
-//            @RequestBody Widget widget){
-//        return service.upWidget(widget);
-//    }
+    @PostMapping("/api/widgets/up")
+    public int upWidget(
+            @RequestBody Widget widget){
+        return widgetService.upWidget(widget);
+    }
 //
 //    @PostMapping("/api/widgets/down")
 //    public int downWidget(
