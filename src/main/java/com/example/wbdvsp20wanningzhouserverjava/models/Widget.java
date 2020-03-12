@@ -1,12 +1,53 @@
 package com.example.wbdvsp20wanningzhouserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String title;
     private String type;
-    private String topicId;
-    private int order;
+    private int widgetorder;
     private int size;
+    private String listType;
+    private String url;
+
+    public String getListType() {
+        return listType;
+    }
+
+    public void setListType(String listType) {
+        this.listType = listType;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @ManyToOne
+    @JsonIgnore
+    private Topic topic;
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
+
 
     public int getSize() {
         return size;
@@ -16,13 +57,6 @@ public class Widget {
         this.size = size;
     }
 
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
-    }
 
     public String getType() {
         return type;
@@ -32,11 +66,11 @@ public class Widget {
         this.type = type;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,18 +79,18 @@ public class Widget {
     }
 
     public void setOrder(int order) {
-        this.order = order;
+        this.widgetorder = order;
     }
 
     public int getOrder() {
-        return this.order;
+        return this.widgetorder;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public Widget(String id, String title, String type) {
+    public Widget(Integer id, String title, String type) {
         this.id = id;
         this.title = title;
         this.type = type;
