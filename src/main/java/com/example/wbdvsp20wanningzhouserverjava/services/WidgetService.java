@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.text.CollationElementIterator;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -23,9 +24,11 @@ public class WidgetService {
     public Widget createWidget(Integer tid, Widget newWidget){
 
         Topic selectedTopic = topicRepository.findTopicById(tid);
-        Integer widgetOrder = widgetRepository.setWidgetOrder(tid);
+        List<Widget> widgets = selectedTopic.getWidgets();
         newWidget.setTopic(selectedTopic);
-        newWidget.setWidgetorder(widgetOrder);
+//        int newOrder = widgets.isEmpty() ? 0 : widgets.get(widgets.size() - 1).getWidgetorder() + 1;
+//        newWidget.setWidgetorder(newOrder);
+        newWidget.setWidgetorder(widgets.size());
         return widgetRepository.save(newWidget);
 
     }
@@ -46,7 +49,22 @@ public class WidgetService {
 
 
     public int deleteWidget(Integer wid){
+        Widget thisWidget = widgetRepository.findWidgetById(wid);
+        Topic topic = thisWidget.getTopic();
+        int tid = topic.getId();
+        List<Widget> widgets = widgetRepository.findWidgetsForTopic(tid);
+        int thisOrder = thisWidget.getWidgetorder();
         widgetRepository.deleteById(wid);
+
+        // when a widget has been deleted, orders of widgets which are after this widget
+        // needs to be pushed back 1
+        for (int i = thisOrder + 1; i < widgets.size(); i++){
+            Widget widget = widgets.get(i);
+                 widget.setWidgetorder(widgets.get(i).getWidgetorder() - 1);
+                 widgetRepository.save(widget);
+            }
+
+
         return 1;
     }
 
@@ -63,47 +81,46 @@ public class WidgetService {
         return 1;
     }
 
-    public int upWidget(Widget widget){
+    public List<Widget> upWidget(Widget widget){
         Topic topic = widget.getTopic();
-        Integer widgetOrder = widget.getWidgetorder();
-        List<Widget> widgets = topic.getWidgets();
+        int tid = topic.getId();
+        List<Widget> widgets = widgetRepository.findWidgetsForTopic(tid);
         for (int i = 0; i < widgets.size(); i++){
             Widget w = widgets.get(i);
-            if(w.getId().equals(widget.getId())){
+            if(w.getId() == widget.getId()) {
                 if (i != 0){
-                    widgets.get(i).setWidgetorder(widgetOrder - 1);
-                    widgets.get(i-1).setWidgetorder(widgetOrder);
-                    Collections.swap(widgets, i, i-1);
-
-
-                    return 1;
+                    widget.setWidgetorder(i-1);
+                    widgetRepository.save(widget);
+                    Widget ww = widgets.get(i-1);
+                    ww.setWidgetorder(i);
+                    widgetRepository.save(ww);
 
                 }
             }
         }
-        return 0;
+        return widgetRepository.findWidgetsForTopic(tid);
 
     }
-//    public int upWidget(Widget widget){
-//        String tid = widget.getTopicId();
-//        List<Widget> widgets = widgetList.get(tid);
-//        if (widgetList.containsKey(tid)){
-//            for (int i = 0; i < widgets.size(); i++){
-//                Widget w = widgets.get(i);
-//                if (w.getId().equals(widget.getId())){
-//                    if (i != 0){
-//                        widgetList.get(tid).get(i).setOrder(i - 1);
-//                        widgetList.get(tid).get(i - 1).setOrder(i);
-//                        Collections.swap(widgetList.get(tid), i, i-1);
-//                        return 1;
-//
-//                    }
-//                }
-//
-//            }
-//        }
-//        return 0;
-//    }
+public List<Widget> downWidget(Widget widget){
+        Topic topic = widget.getTopic();
+        int tid = topic.getId();
+        List<Widget> widgets = widgetRepository.findWidgetsForTopic(tid);
+        for (int i = 0; i < widgets.size(); i++){
+            Widget w = widgets.get(i);
+            if(w.getId() == widget.getId()){
+                if (i < widgets.size()-1){
+                    Widget ww = widgets.get(i+1);
+                    ww.setWidgetorder(i);
+                    widgetRepository.save(ww);
+                    widget.setWidgetorder(i + 1);
+                    widgetRepository.save(widget);
+
+
+                }
+            }
+        }
+        return widgetRepository.findWidgetsForTopic(tid);
+}
 
 
 

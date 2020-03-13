@@ -24,16 +24,16 @@ public class WidgetController {
 
 
     @PostMapping("/api/widgets/up")
-    public int upWidget(
+    public List<Widget> upWidget(
             @RequestBody Widget widget){
         return widgetService.upWidget(widget);
     }
-//
-//    @PostMapping("/api/widgets/down")
-//    public int downWidget(
-//            @RequestBody Widget widget){
-//        return service.downWidget(widget);
-//    }
+
+    @PostMapping("/api/widgets/down")
+    public List<Widget> downWidget(
+            @RequestBody Widget widget){
+        return widgetService.downWidget(widget);
+    }
 
 
     @DeleteMapping("/api/widgets/{widgetId}")

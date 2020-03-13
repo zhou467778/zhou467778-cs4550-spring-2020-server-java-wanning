@@ -20,24 +20,8 @@ public class Widget {
     private String listType;
     private String url;
 
-    public String getListType() {
-        return listType;
-    }
-
-    public void setListType(String listType) {
-        this.listType = listType;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     @ManyToOne
-    @JsonIgnore
     private Topic topic;
 
     public Topic getTopic() {
@@ -90,6 +74,21 @@ public class Widget {
         this.title = title;
     }
 
+    public String getListType() {
+        return listType;
+    }
+
+    public void setListType(String listType) {
+        this.listType = listType;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     public Widget(Integer id, String title, String type) {
         this.id = id;
         this.title = title;
